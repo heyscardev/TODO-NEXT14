@@ -1,5 +1,12 @@
-import { CiBookmarkCheck, CiLogout } from "react-icons/ci";
+import {
+  IoCalendarOutline,
+  IoCheckboxOutline,
+  IoListOutline,
+} from "react-icons/io5";
+
 import { SidebarBanner, SidebarItem, SidebarUser } from "..";
+import { CiLogout } from "react-icons/ci";
+
 interface Item {
   icon: React.ReactNode;
   title: string;
@@ -8,13 +15,18 @@ interface Item {
 const items: Item[] = [
   {
     href: "/",
-    icon: <CiBookmarkCheck size={30} />,
+    icon: <IoCalendarOutline size={30} />,
     title: "Dashboard",
   },
   {
-    href: "/dasda",
-    icon: <CiBookmarkCheck size={30} />,
-    title: "Categories",
+    href: "/rest-todos",
+    icon: <IoCheckboxOutline size={30} />,
+    title: "Rest Todos",
+  },
+  {
+    href: "/server-todos",
+    icon: <IoListOutline size={30} />,
+    title: "Server Actions",
   },
 ];
 export const Sidebar = () => {
