@@ -22,8 +22,9 @@ npm install
 
 3. copy and rename .env.example
 4. set enviroiments vars
+5. Execute seed to create database [crear base de datos local](http://localhost:3000/api/seed)
 
-5. to run de delopment server
+6. to run de delopment server
 
 ```
 npm run dev
