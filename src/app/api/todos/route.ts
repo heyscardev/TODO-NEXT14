@@ -45,3 +45,10 @@ export async function POST(req: Request) {
     );
   }
 }
+
+export async function DELETE(request: Request) {
+  
+  const todos = await prisma.todo.deleteMany({ where: { complete:true } });
+
+  return NextResponse.json({data:todos});
+}

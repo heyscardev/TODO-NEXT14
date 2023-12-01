@@ -30,3 +30,15 @@ export const updateTodo =async (id:string,todo:Partial<Todo>):Promise<Todo>=>{
     const data = await res.json() as Todo
     return data
 }
+export const deleteTodo =async (id:string):Promise<Todo>=>{
+    
+    const res = await fetch(`/api/todos/${id}`,{ headers,method:"DELETE" })
+    const data = await res.json() as Todo
+      return data
+  }
+  export const deleteCompletedTodos =async ():Promise<void>=>{
+    
+    const res = await fetch(`/api/todos`,{ headers,method:"DELETE" })
+    const data = await res.json() 
+    console.log(data)
+  }

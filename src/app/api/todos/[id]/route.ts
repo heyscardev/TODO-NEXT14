@@ -39,3 +39,12 @@ export async function PUT(request: Request, { params }: Args) {
     return NextResponse.json(error, { status: 400 });
   }
 }
+
+export async function DELETE(request: Request, { params }: Args) {
+  const { id } = params;
+  const todo = await prisma.todo.delete({ where: { id } });
+  if (!todo)
+    return NextResponse.json({ message: "Not Found" }, { status: 404 });
+
+  return NextResponse.json(todo);
+}

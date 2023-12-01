@@ -8,12 +8,15 @@ export const metadata: Metadata = {
   description: "Todos Pages for get and view the todos with rest api",
 };
 export default async function RestTodosPage() {
-  const todos = await prisma.todo.findMany({orderBy:[{complete:"asc"},{createdAt:"desc"}] });
+  const todos = await prisma.todo.findMany({
+    orderBy: [{ complete: "asc" }, { createdAt: "desc" }],
+  });
 
   return (
-    <div className="p-4">
-      {/* TODO: add form to add todos */}
-      <h1 className="mb-3">Rest Todos</h1>
+    <div className="p-4 py-0">
+      <h1 className=" text-4xl font-medium border-b-[3px] border-b-slate-400 pr-8 pb-2 bg-gradient-to-b from-gray-400 drop-shadow-lg  to-slate-500 inline-block text-transparent bg-clip-text">
+        Rest Todos
+      </h1>
       <NewTodo />
       <TodosGrid todos={todos} />
     </div>
