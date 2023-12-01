@@ -21,7 +21,7 @@ export async function GET(request: Request) {
       },
       { status: 400 }
     );
-  const todos = await prisma.todo.findMany({ skip, take });
+  const todos = await prisma.todo.findMany({ skip, take,orderBy:[{complete:"asc"}] });
   return NextResponse.json({ total: todos.length, data: todos });
 }
 const postSchema = yup.object({

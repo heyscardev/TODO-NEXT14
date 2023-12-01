@@ -1,0 +1,7 @@
+.todoDone {
+  @apply transition-all  opacity-40  hover:opacity-80 focus-within:opacity-80 bg-blue-50 rounded-lg  hover:shadow-lg shadow-sm p-5 border-dashed border border-blue-500 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0;
+}
+
+.todoPending {
+  @apply transition-all  bg-gradient-to-r from-sky-400 to-cyan-300 opacity-90  rounded-lg shadow-sm hover:shadow-lg  p-5 border-dashed border border-sky-800 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0;
+}
