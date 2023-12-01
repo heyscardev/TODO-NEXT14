@@ -4,8 +4,10 @@ import {
   IoListOutline,
 } from "react-icons/io5";
 
-import { SidebarBanner, SidebarItem, SidebarUser } from "..";
 import { CiLogout } from "react-icons/ci";
+import { SidebarBanner } from "./SidebarBanner";
+import { SidebarUser } from "./SidebarUser";
+import { SidebarItem } from "./SidebarItem";
 
 interface Item {
   icon: React.ReactNode;
@@ -23,11 +25,11 @@ const items: Item[] = [
     icon: <IoCheckboxOutline size={30} />,
     title: "Rest Todos",
   },
-  {
-    href: "/server-todos",
-    icon: <IoListOutline size={30} />,
-    title: "Server Actions",
-  },
+  // {
+  //   href: "/server-todos",
+  //   icon: <IoListOutline size={30} />,
+  //   title: "Server Actions",
+  // },
 ];
 export const Sidebar = () => {
   return (

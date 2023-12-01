@@ -32,6 +32,7 @@ export const NewTodo = () => {
   return (
     <form onSubmit={onSubmit} className="flex w-full items-center my-4">
       <input
+        maxLength={40}
         type="text"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
