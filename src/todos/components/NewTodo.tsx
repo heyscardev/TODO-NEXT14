@@ -2,8 +2,8 @@
 
 import { FormEvent, useState } from "react";
 import { IoAdd, IoTrashOutline } from "react-icons/io5";
-import { createTodo, deleteCompletedTodos } from "../helpers/todos";
 import { useRouter } from "next/navigation";
+import { createTodo, deleteCompletedTodos } from "../actions/todo-actions";
 
 export const NewTodo = () => {
   const [description, setDescription] = useState<string>("");
@@ -16,7 +16,6 @@ export const NewTodo = () => {
       createTodo({ description }).then(() => {
         setIsloading(false);
         setDescription("");
-        router.refresh();
       });
     }
   };
@@ -25,7 +24,6 @@ export const NewTodo = () => {
       setIsloading(true);
       deleteCompletedTodos().then(() => {
         setIsloading(false);
-        router.refresh();
       });
     }
   };

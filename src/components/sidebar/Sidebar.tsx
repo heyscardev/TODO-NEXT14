@@ -25,11 +25,11 @@ const items: Item[] = [
     icon: <IoCheckboxOutline size={30} />,
     title: "Rest Todos",
   },
-  // {
-  //   href: "/server-todos",
-  //   icon: <IoListOutline size={30} />,
-  //   title: "Server Actions",
-  // },
+  {
+    href: "/server-todos",
+    icon: <IoListOutline size={30} />,
+    title: "Server Actions",
+  },
 ];
 export const Sidebar = () => {
   return (

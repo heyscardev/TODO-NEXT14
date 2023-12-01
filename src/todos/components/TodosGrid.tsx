@@ -1,22 +1,23 @@
 "use client";
 import { type Todo } from "@prisma/client";
-import { updateTodo } from "../helpers/todos";
+// import { updateTodo } from "../helpers/todos";
 import { TodoItem } from "./TodoItem";
 import { useRouter } from "next/navigation";
+import { updateTodo } from "../actions/todo-actions";
 
 interface Props {
   todos?: Todo[];
 }
 export const TodosGrid = ({ todos = [] }: Props) => {
-  const updaTodo = async (id: string, todo: Partial<Todo>) => {
-    await updateTodo(id, todo);
-    router.refresh();
-  };
+  // const updaTodo = async (id: string, todo: Partial<Todo>) => {
+  //   await updateTodo(id, todo);
+  //   router.refresh();
+  // };
   const router = useRouter();
   return todos.length ? (
     <div className="  grid grid-cols-4 max-md:grid-cols-1  max-lg:grid-cols-2 gap-5">
       {todos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} updateTodo={updaTodo} />
+        <TodoItem key={todo.id} todo={todo} updateTodo={updateTodo} />
       ))}
       {/* <code className=" text-neutral-300 whitespace-pre ">
         {JSON.stringify(todos, null, " ")}
