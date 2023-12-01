@@ -14,7 +14,7 @@ router.refresh()
 }
  const router = useRouter()
   return (
-    <div className="  grid grid-cols-3 max-md:grid-cols-1  max-lg:grid-cols-2 gap-5">
+    <div className="  grid grid-cols-4 max-md:grid-cols-1  max-lg:grid-cols-2 gap-5">
       {todos.map((todo) => (
         <TodoItem key={todo.id} todo={todo} updateTodo={updaTodo}/>
       ))}

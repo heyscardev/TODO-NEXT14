@@ -25,7 +25,7 @@ export const TodoItem = ({ todo ,updateTodo}: Props) => {
   return (
     <div className={`${todo.complete ? styles.todoDone : styles.todoPending} `}>
 
-     <div className={`flex flex-col  sm:flex-row justify-between w-full items-center space-x-2 space-y-3 `}>
+     <div className={`flex flex-col  sm:flex-row justify-between w-full items-center space-x-  `}>
         <div onClick={()=>update({complete:!todo.complete})}
          className={`
         flex p-2 rounded-md cursor-pointer
@@ -38,6 +38,7 @@ export const TodoItem = ({ todo ,updateTodo}: Props) => {
             if(e.key === 'Enter' )
             e.currentTarget.blur()
         }}
+        maxLength={20}
          defaultValue={todo.description}  className={`${todo.complete ?"line-through focus:no-underline":""} text-center sm:text-left shadow-inner shadow-neutral-400  bg-white p-4 min-w-[60%]   rounded-xl`}/>
   
      </div>
