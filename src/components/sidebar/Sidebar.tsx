@@ -8,6 +8,7 @@ import { CiLogout } from "react-icons/ci";
 import { SidebarBanner } from "./SidebarBanner";
 import { SidebarUser } from "./SidebarUser";
 import { SidebarItem } from "./SidebarItem";
+import { BiCookie } from "react-icons/bi";
 
 interface Item {
   icon: React.ReactNode;
@@ -29,6 +30,11 @@ const items: Item[] = [
     href: "/server-todos",
     icon: <IoListOutline size={30} />,
     title: "Server Actions",
+  },
+  {
+    href: "/cookies",
+    icon: <BiCookie size={30} />,
+    title: "Cookies",
   },
 ];
 export const Sidebar = () => {
