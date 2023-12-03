@@ -8,7 +8,7 @@ import { CiLogout } from "react-icons/ci";
 import { SidebarBanner } from "./SidebarBanner";
 import { SidebarUser } from "./SidebarUser";
 import { SidebarItem } from "./SidebarItem";
-import { BiCookie } from "react-icons/bi";
+import { BiBox, BiCookie } from "react-icons/bi";
 
 interface Item {
   icon: React.ReactNode;
@@ -35,6 +35,11 @@ const items: Item[] = [
     href: "/cookies",
     icon: <BiCookie size={30} />,
     title: "Cookies",
+  },
+  {
+    href: "/products",
+    icon: <BiBox size={30} />,
+    title: "Products",
   },
 ];
 export const Sidebar = () => {
