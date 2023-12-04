@@ -15,10 +15,12 @@ export const SidebarUser = ({ user }: Props) => {
         className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28  border-cyan-400 border-y-1 border-x-8 "
         priority
       />
-      <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">
+      <h5 className="hidden dark:text-cyan-300 mt-4 text-xl font-semibold text-gray-600 lg:block">
         {user.name}
       </h5>
-      <span className="hidden text-gray-400 lg:block">{user.role}</span>
+      <span className="hidden text-gray-400 dark:text-white lg:block">
+        {user.role}
+      </span>
     </div>
   );
 };
