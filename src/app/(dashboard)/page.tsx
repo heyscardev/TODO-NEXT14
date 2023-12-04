@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 import React from "react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { authOptions } from "../api/auth/[...nextauth]/auth";
 
 const Dashboardpage = async () => {
   const cookiesCart = JSON.parse(cookies().get("cart")?.value ?? "{}");
@@ -11,7 +12,7 @@ const Dashboardpage = async () => {
     (prev: number, total: any) => prev + total,
     0
   );
-  const session = await getServerSession();
+  const session = await getServerSession(authOptions);
   if (!session) redirect("/api/auth/signin");
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
