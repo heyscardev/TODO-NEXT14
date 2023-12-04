@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Server Todos",
   description: "Todos Pages for get and view the todos with server actions",
 };
-export const dinamyc = "force-dynamic";
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 export default async function RestTodosPage() {
   const todos = await prisma.todo.findMany({
