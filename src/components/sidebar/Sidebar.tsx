@@ -2,6 +2,8 @@ import {
   IoCalendarOutline,
   IoCheckboxOutline,
   IoListOutline,
+  IoPerson,
+  IoPersonOutline,
 } from "react-icons/io5";
 
 import { CiLogout } from "react-icons/ci";
@@ -10,6 +12,7 @@ import { SidebarUser } from "./SidebarUser";
 import { SidebarItem } from "./SidebarItem";
 import { BiBox, BiCookie } from "react-icons/bi";
 import { getServerSession } from "next-auth";
+import { AuthBtn } from "./AuthBtn";
 
 interface Item {
   icon: React.ReactNode;
@@ -42,6 +45,11 @@ const items: Item[] = [
     icon: <BiBox size={30} />,
     title: "Products",
   },
+  {
+    href: "/profile",
+    icon: <IoPersonOutline size={30} />,
+    title: "Profile",
+  },
 ];
 export const Sidebar = async () => {
   const session = await getServerSession();
@@ -62,12 +70,7 @@ export const Sidebar = async () => {
       </div>
 
       <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t dark:border-t-cyan-300">
-        <button className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-          <CiLogout />
-          <span className="group-hover:text-gray-700 dark:text-white">
-            Logout
-          </span>
-        </button>
+        <AuthBtn />
       </div>
     </aside>
   );
