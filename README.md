@@ -21,16 +21,28 @@ npm install
 ```
 
 3. copy and rename .env.example
-4. set enviroiments vars
-5. Execute seed to create database [crear base de datos local](http://localhost:3000/api/seed)
+4. gen next auth secret token in local
 
-6. to run de delopment server
+```
+openssl rand -base64 32
+```
+
+or via web
+
+```
+https://generate-secret.vercel.app/32
+```
+
+5. set enviroiments vars
+6. Execute seed to create database [crear base de datos local](http://localhost:3000/api/seed)
+
+7. to run de delopment server
 
 ```
 npm run dev
 ```
 
-6. into browser paste url
+8. into browser paste url
 
 ```
 localhost:3000

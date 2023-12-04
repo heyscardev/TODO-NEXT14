@@ -1,13 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        remotePatterns: [{
-            hostname: "tailus.io",protocol:"https",pathname:"/sources/blocks/stats-cards/preview/images/**"
-        }]
+    remotePatterns: [
+      { protocol: "https", hostname: "tailus.io", pathname: "/sources/blocks/stats-cards/preview/images/**" },
+      { protocol: "https", hostname: "avatars.githubusercontent.com", }
+      ]
     },
     experimental: {
     serverActions: {
-         allowedForwardedHosts: ["localhost", "gp71dwqz-3000.brs.devtunnels.ms"],
+      allowedForwardedHosts: ["localhost", "gp71dwqz-3000.brs.devtunnels.ms"],
       allowedOrigins: ["gp71dwqz-3000.brs.devtunnels.ms", "localhost:3000"]
     }
   }
