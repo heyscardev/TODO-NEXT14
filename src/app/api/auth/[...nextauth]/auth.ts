@@ -19,5 +19,32 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_SECRET ?? "",
     }),
   ],
+  session: {
+    strategy: "jwt",
+  },
+  callbacks: {
+    async signIn({ account, user, credentials, email, profile }) {
+      return true;
+    },
+    async jwt({ token, user, account, profile }) {
+      const dbUSer = await prisma.user.findUnique({
+        where: { id: token.sub ?? "no-id" },
+      });
+      if (dbUSer?.isActive === false) throw Error("User No Active");
+      token.roles = dbUSer?.roles ?? ["no-roles"];
+      token.id = dbUSer?.id ?? "no-uuid";
+      token.isActive = dbUSer?.isActive ?? false;
+      return token;
+    },
+    async session({ session, token, user }) {
+      if (session && session.user) {
+        session.user.id = token.id;
+        session.user.roles = token.roles;
+        session.user.isActive = token.isActive;
+      }
+
+      return session;
+    },
+  },
 };
 export const handler = NextAuth(authOptions);

@@ -60,7 +60,7 @@ export const Sidebar = async () => {
         <SidebarBanner />
         <SidebarUser
           name={session?.user?.name ?? "Heyscar Romero"}
-          role="Admin"
+          roles={session?.user?.roles}
           image={session?.user?.image}
         />
         <ul className="space-y-2 tracking-wide mt-8">

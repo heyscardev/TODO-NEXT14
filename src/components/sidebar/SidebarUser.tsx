@@ -2,13 +2,12 @@ import Image from "next/image";
 import profile from "@/assets/user.jpeg";
 interface Props {
   name?: string | null;
-  role: string;
+  roles?: string[];
   image?: string | null;
 }
-export const SidebarUser = ({ image, name, role }: Props) => {
+export const SidebarUser = ({ image, name, roles }: Props) => {
   return (
     <div className="mt-8 text-center">
-      {/* Next/Image */}
       <Image
         src={image ?? profile}
         alt={`${name} - profile`}
@@ -20,8 +19,8 @@ export const SidebarUser = ({ image, name, role }: Props) => {
       <h5 className="hidden dark:text-cyan-300 mt-4 text-xl font-semibold text-gray-600 lg:block">
         {name}
       </h5>
-      <span className="hidden text-gray-400 dark:text-white lg:block">
-        {role}
+      <span className="hidden text-gray-400 dark:text-white lg:block uppercase text-sm ">
+        {roles?.join(" - ") ?? "Admin"}
       </span>
     </div>
   );

@@ -27,11 +27,6 @@ model Todo {
 //   updatedAt DateTime @updatedAt
 // }
 
-// enum Role {
-//   USER
-//   ADMIN
-// }
-
 model Account {
   id                       String  @id @default(uuid())
   userId                   String
@@ -63,6 +58,8 @@ model Session {
 model User {
   id            String    @id @default(uuid())
   name          String?
+  roles         String[]  @default(["client"])
+  isActive      Boolean   @default(true)
   email         String?   @unique
   emailVerified DateTime?
   image         String?
@@ -76,4 +73,9 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+enum Role {
+  USER
+  ADMIN
 }

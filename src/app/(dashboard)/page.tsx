@@ -26,7 +26,7 @@ const Dashboardpage = async () => {
             <SidebarUser
               name={session?.user?.name}
               image={session?.user?.image || undefined}
-              role={session?.user?.email || "admin"}
+              roles={session?.user?.roles}
             />
           ) : (
             <Link
