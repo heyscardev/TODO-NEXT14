@@ -3,6 +3,7 @@
 import prisma from "@/lib/prisma";
 import { Todo } from "@prisma/client";
 import { revalidatePath } from "next/cache";
+import { getUserSessionServer } from "../../auth/actions/auth-actions";
 export const sleep = async (seconds: number) => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -14,10 +15,11 @@ export const updateTodo = async (
   id: string,
   { description, complete }: Partial<Todo>
 ): Promise<Todo> => {
-  console.log("sdsad");
+  const user = await getUserSessionServer();
+  if (!user || !user.id) throw Error("user authenticated is required");
   //   await sleep(3);
   //   throw new Error("error");
-  const todo = await prisma.todo.findFirst({ where: { id } });
+  const todo = await prisma.todo.findFirst({ where: { id, userId: user.id } });
   if (!todo) {
     throw `Todo with ID ${id} Not found`;
   }
@@ -38,16 +40,20 @@ export const createTodo = async ({
   description,
   complete,
 }: CreatingTodo): Promise<Todo> => {
+  const user = await getUserSessionServer();
+  if (!user || !user.id) throw Error("user authenticated is required");
   const data = await prisma.todo.create({
-    data: { complete, description },
+    data: { complete, description, userId: user.id },
   });
 
   revalidatePath("/");
   return data;
 };
 export const deleteCompletedTodos = async (): Promise<any> => {
+  const user = await getUserSessionServer();
+  if (!user || !user.id) throw Error("user authenticated is required");
   const data = await prisma.todo.deleteMany({
-    where: { complete: true },
+    where: { complete: true, userId: user.id },
   });
 
   revalidatePath("/");

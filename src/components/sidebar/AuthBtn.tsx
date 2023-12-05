@@ -5,7 +5,6 @@ import { CiLogin, CiLogout } from "react-icons/ci";
 import { AiOutlineLoading } from "react-icons/ai";
 export const AuthBtn = () => {
   const { status, data } = useSession();
-  console.log(data);
   if (status === "loading")
     return (
       <div className="flex justify-center w-full">
